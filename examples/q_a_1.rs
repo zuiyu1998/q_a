@@ -20,7 +20,8 @@ impl State {
     }
 
     pub fn print(&self) {
-        let count = self.count.lock().unwrap();
+        let mut count = self.count.lock().unwrap();
+        *count += 1;
 
         println!("{}", count);
     }
